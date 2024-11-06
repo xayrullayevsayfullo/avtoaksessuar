@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avtoaksessuar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="shortcut icon"
+      href="./assets/img/avtologo.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 1440px;
+            width: 100%;
+            margin: 0px auto;
+        }
+        .link  {
+    background-image: linear-gradient(
+      to right,
+      rgb(255, 17, 0),
+      rgb(255, 17, 0) 50%,
+      black 50%
+    );
+    background-size: 200% 100%;
+    background-position: -100%;
+    display: inline-block;
+ 
+    position: relative;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .link:before{
+    content: '';
+    background: rgb(255, 17, 0);
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .link:hover {
+   background-position: 0;
+  }
+  
+  .link:hover::before{
+    width: 100%;
+  }
+    </style>
+    <header class="text-white">
+        <nav class="container">
+            <div class="lg:flex hidden pt-4 items-center justify-between text-black sm:space-x-8 space-x-4 m:px-10 px-6 py-2">
+                <div class="flex gap-4 text-lg pl-4">
+                    <a class="link" href="#!"><i class="pr-2 fa-solid fa-location-dot"></i><u>Toshkent</u></a>
+                    <a href="#!" class="link ">Topshirish punktlari</a>
+                </div>
+                <div class="flex space-x-6 text-red-600">
+                    <a href="#!" class="link font-bold text-black text-lg">Sotuvchi bo'lish</a>
+                    <a href="#!" class="link font-bold text-black text-lg">Topshirish punktini ochish</a>
+                    <a href="#!" class="link text-lg text-black">Savol-javob</a>
+                    <a href="#!" class="link text-lg text-black">Buyurtmalarim</a>
+                </div>
+            </div>
+            <div class="flex items-center justify-around sm:space-x-8 space-x-4 m:px-10 px-6 lg:py-0 py-2">
+                <a href="index.html"><img class="sm:w-[150px] w-[100px]" src="assets/img/avtologo.png" alt="avtologo"></a>
+            <div class="w-full lg:flex hidden ">
+                <input id="searchInput" class="w-full bg-slate-200 rounded-l-lg  px-4 outline-none text-black" type="text" placeholder="Mahsulotni nomini kiriting">
+                <i class="py-4 px-8 bg-red-600 cursor-pointer rounded-r-lg text-xl fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="flex text-black items-center justify-center space-x-12">
+                <div class="flex items-center justify-center flex-col text-lg cursor-pointer">
+                    <i class="text-xl fa-solid fa-user"></i>
+                    <span>Kirish</span>
+                </div>
+                <div class="flex items-center justify-center flex-col text-lg cursor-pointer">
+                    <i class="text-xl fa-solid fa-cart-shopping"></i>
+                    <span>Savatcha</span>
+                </div>
+            </div>
+            </div>
+        </nav>
+    </header>
+    <section class="container grid lg:grid-cols-2 grid-row gap-4 py-4 sm:px-10 px-4">
+        <div class="grid grid-cols-3 gap-2">
+            <img class="w-full rounded-lg cursor-pointer" src="assets/img/poliklar.jpg" alt="poliklar">
+            <img class="w-full rounded-lg cursor-pointer" src="assets/img/poliklar2.jpg" alt="poliklar">
+            <img class="w-full rounded-lg cursor-pointer" src="assets/img/poliklar3.jpg" alt="poliklar">
+            <img class="w-full rounded-lg cursor-pointer" src="assets/img/poliklar4.jpg" alt="poliklar">
+            <img class="w-full rounded-lg cursor-pointer" src="assets/img/poliklar5.jpg" alt="poliklar">
+            <img class="w-full rounded-lg cursor-pointer" src="assets/img/poliklar6.jpg" alt="poliklar">
+        </div>
+        <div>
+            <div>
+                <h3 class="text-xl m-[4px]">Model:</h3>
+                    <button class="sm:text-xl text-sm py-2 px-4 border font-bold text-slate-600 m-[4px] border-slate-400 rounded-lg">Matiz</button>
+                    <button class="sm:text-xl text-sm py-2 px-4 border font-bold text-slate-600 m-[4px] border-slate-400 rounded-lg">Spark</button>
+                    <button class="sm:text-xl text-sm py-2 px-4 border font-bold text-slate-600 m-[4px] border-slate-400 rounded-lg">Nexia1,2</button>
+                    <button class="sm:text-xl text-sm py-2 px-4 border font-bold text-slate-600 m-[4px] border-slate-400 rounded-lg">Nexia3</button>
+                    <button class="sm:text-xl text-sm py-2 px-4 border font-bold text-slate-600 m-[4px] border-slate-400 rounded-lg">Cobalt</button>
+                    <button class="sm:text-xl text-sm py-2 px-4 border font-bold text-slate-600 m-[4px] border-slate-400 rounded-lg">Gentra(Lacetti)</button>
+                    <button class="sm:text-xl text-sm py-2 px-4 border font-bold text-slate-600 m-[4px] border-slate-400 rounded-lg">Damas</button>
+                    <button class="sm:text-xl text-sm py-2 px-4 border font-bold text-slate-600 m-[4px] border-slate-400 rounded-lg">Onix</button>
+                    <button class="sm:text-xl text-sm py-2 px-4 border font-bold text-slate-600 m-[4px] border-slate-400 rounded-lg">Monza</button>
+                    <button class="sm:text-xl text-sm py-2 px-4 border font-bold text-slate-600 m-[4px] border-slate-400 rounded-lg">Tracker</button>
+                    <button class="sm:text-xl text-sm py-2 px-4 border font-bold text-slate-600 m-[4px] border-slate-400 rounded-lg">Tracker2</button>
+                    <button class="sm:text-xl text-sm py-2 px-4 border font-bold text-slate-600 m-[4px] border-slate-400 rounded-lg">Malibu</button>
+                    <button class="sm:text-xl text-sm py-2 px-4 border font-bold text-slate-600 m-[4px] border-slate-400 rounded-lg">Malibu2</button>
+                    <button class="sm:text-xl text-sm py-2 px-4 border font-bold text-slate-600 m-[4px] border-slate-400 rounded-lg">Labo</button>
+                    <button class="sm:text-xl text-sm py-2 px-4 border font-bold text-slate-600 m-[4px] border-slate-400 rounded-lg">Cruze</button>
+                    <button class="sm:text-xl text-sm py-2 px-4 border font-bold text-slate-600 m-[4px] border-slate-400 rounded-lg">Captiva</button>
+                    <button class="sm:text-xl text-sm py-2 px-4 border font-bold text-slate-600 m-[4px] border-slate-400 rounded-lg">Equinox</button>
+                    <button class="sm:text-xl text-sm py-2 px-4 border font-bold text-slate-600 m-[4px] border-slate-400 rounded-lg">Orlando</button>
+                    <button class="sm:text-xl text-sm py-2 px-4 border font-bold text-slate-600 m-[4px] border-slate-400 rounded-lg">Traverse</button>
+                    <button class="sm:text-xl text-sm py-2 px-4 border font-bold text-slate-600 m-[4px] border-slate-400 rounded-lg">Tahoe</button>
+            </div>
+            <div class="m-[4px] border border-slate-400 p-6 rounded-xl space-y-4">
+                <div>
+                    <span class="sm:text-4xl text-xl font-bold">530 000 so'm</span>
+                    <del class="sm:text-2xl text-sm text-slate-600 ml-4">780 000 so'm</del>
+                </div>
+                <div>
+                    <span class="p-2 rounded-full text-white bg-red-500 font-bold py-[4px]">-50%</span>
+                    <span class="p-2 rounded-full text-white bg-red-500 font-bold py-[4px]">Katta savdo</span>
+                </div>
+                <div class="bg-slate-200 hover:bg-slate-300 cursor-pointer gap-4 rounded-xl flex sm:flex-row flex-col items-center justify-between p-4">
+                    <span class="sm:text-xl text-sm bg-yellow-400 w-full text-center rounded-lg font-bold py-[4px]">oyiga 34 770 so'mdan</span>
+                    <span class="sm:text-xl text-sm">muddatli to'lov</span>
+                    <i class="sm:flex hidden fa-solid fa-chevron-right"></i>
+                </div>
+                <div class="flex gap-2">
+                    <button class="bg-slate-200 hover:bg-slate-300 cursor-pointer w-full sm:text-2xl text-lg font-bold py-4 rounded-xl ">1 clickda xarid qilish</button>
+                    <button class="py-2 px-4 rounded-lg bg-slate-200"><i class="sm:text-xl text-sm text-slate-500 hover:text-red-500 fa-solid fa-heart"></i></button>
+                </div>
+                <div>
+                    <button class="bg-red-600 hover:bg-red-500 text-white py-4 w-full sm:text-2xl text-lg rounded-xl font-bold">Savatga qo'shish</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

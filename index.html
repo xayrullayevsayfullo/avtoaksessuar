@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avtoaksessuar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="shortcut icon"
+      href="./assets/img/avtologo.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 1440px;
+            width: 100%;
+            margin: 0px auto;
+        }
+        .link  {
+    background-image: linear-gradient(
+      to right,
+      rgb(255, 17, 0),
+      rgb(255, 17, 0) 50%,
+      black 50%
+    );
+    background-size: 200% 100%;
+    background-position: -100%;
+    display: inline-block;
+ 
+    position: relative;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .link:before{
+    content: '';
+    background: rgb(255, 17, 0);
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .link:hover {
+   background-position: 0;
+  }
+  
+  .link:hover::before{
+    width: 100%;
+  }
+    </style>
+    <header id="head" class="text-white">
+        <nav class="container">
+            <div class="lg:flex hidden pt-4 items-center justify-between text-black sm:space-x-8 space-x-4 m:px-10 px-6 py-2">
+                <div class="flex gap-4 text-lg pl-4">
+                    <a class="link" href="#!"><i class="pr-2 fa-solid fa-location-dot"></i><u>Toshkent</u></a>
+                    <a href="#!" class="link ">Topshirish punktlari</a>
+                </div>
+                <div class="flex space-x-6 text-red-600">
+                    <a href="#!" class="link font-bold text-black text-lg">Sotuvchi bo'lish</a>
+                    <a href="#!" class="link font-bold text-black text-lg">Topshirish punktini ochish</a>
+                    <a href="#!" class="link text-lg text-black">Savol-javob</a>
+                    <a href="#!" class="link text-lg text-black">Buyurtmalarim</a>
+                </div>
+            </div>
+            <div class="flex items-center justify-around sm:space-x-8 space-x-4 m:px-10 px-6 lg:py-0 py-2">
+                <a href="#head"><img class="sm:w-[150px] w-[100px]" src="assets/img/avtologo.png" alt="avtologo"></a>
+            <button id="btn" class="sm:py-4 py-2 text-lg xl:hidden flex items-center justify-center gap-4 sm:px-6 px-4 border-2 hover:border-red-600 border-black text-black hover:text-red-600 font-bold rounded-lg">
+                <i class="fa-solid fa-bars"></i>
+                <span>Kategoriya</span>
+            </button>
+            <div class="w-full lg:flex hidden ">
+                <input id="searchInput" class="w-full bg-slate-200 rounded-l-lg  px-4 outline-none text-black" type="text" placeholder="Mahsulotni nomini kiriting">
+                <i class="py-4 px-8 bg-red-600 cursor-pointer rounded-r-lg text-xl fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="flex text-black items-center justify-center space-x-12">
+                <div class="flex items-center justify-center flex-col text-lg cursor-pointer">
+                    <i class="text-xl fa-solid fa-user"></i>
+                    <span>Kirish</span>
+                </div>
+                <div class="sm:flex hidden items-center justify-center flex-col text-lg cursor-pointer">
+                    <i class="text-xl fa-solid fa-cart-shopping"></i>
+                    <span>Savatcha</span>
+                </div>
+            </div>
+            </div>
+        </nav>
+    </header>
+    <section class="container">
+        <div class="w-full lg:hidden flex sm:px-10 px-6">
+            <input id="searchInput"  class="  w-full bg-slate-200 sm:rounded-l-lg rounded-lg  px-4 outline-none text-black" type="text" placeholder="Izlash">
+            <i class="py-4 sm:flex hidden px-8 bg-red-600 cursor-pointer text-white rounded-r-lg text-xl fa-solid fa-magnifying-glass"></i>
+            <div class="sm:hidden pl-4 flex items-center justify-center flex-col text-lg cursor-pointer">
+                <i class="text-xl fa-solid fa-cart-shopping"></i>
+                <span>Savatcha</span>
+            </div>
+        </div>
+        
+    </section>
+    <hr class="border-red-600 border-[1px] xl:flex hidden mw-full">
+    <section class="container grid grid-cols-1 m:px-10 px-6">
+        <ul class="xl:flex hidden space-x-4 items-center  justify-around font-bold text-red-600  text-center py-4">
+            <li><button id="1barchasi" class="px-[14px] p-2 rounded-lg hover:bg-red-600 hover:text-white hover:transition">Barchasi</button></li>
+            <li><button id="1poliklar" class="px-[14px] p-2 rounded-lg hover:bg-red-600 hover:text-white hover:transition">Avtopoliklar va linonimlar</button></li>
+            <li><button id="1buyumlar" class="px-[14px] p-2 rounded-lg hover:bg-red-600 hover:text-white hover:transition">Avtomobil buyumlari</button></li>
+            <li><button id="1conditsioner" class="px-[14px] p-2 rounded-lg hover:bg-red-600 hover:text-white hover:transition">Avto muzlatgichlar</button></li>
+            <li><button id="1modulyator" class="px-[14px] p-2 rounded-lg hover:bg-red-600 hover:text-white hover:transition">FM-modulyator</button></li>
+            <li><button id="1telefon" class="px-[14px] p-2 rounded-lg hover:bg-red-600 hover:text-white hover:transition">Telefon zaryadlovchisi va ushlagichi</button></li>
+        </ul>
+        <ul class="hidden modal mt-2 font-bold fixed rounded-lg bg-slate-200 shadow-xl md:ml-[200px] lg:mt-2 border-red-600 border-2 mt-[-65px] sm:ml-[80px] ">
+            <i class="pr-4 font-bold text-red-600 pb-2 flex items-center justify-end pt-4 fa-solid fa-xmark"></i>
+            <li id="2barchasi" class="hover:bg-red-600 text-center px-6 py-2 hover:text-white">Barchasi</li>
+            <li id="2poliklar" class="hover:bg-red-600 text-center px-6 py-2 hover:text-white">Avtopoliklar va linonimlar</li>
+            <li id="2buyumlar" class="hover:bg-red-600 text-center px-6 py-2 hover:text-white">Avtomobil buyumlari</li>
+            <li id="2conditsioner" class="hover:bg-red-600 text-center px-6 py-2 hover:text-white">Avto muzlatgichlar</li>
+            <li id="2modulyator" class="hover:bg-red-600 text-center px-6 py-2 hover:text-white">FM-modulyator</li>
+            <li id="2telefon" class="hover:bg-red-600 text-center px-6 py-2 rounded-b-lg hover:text-white">Telefon zaryadlovchisi va ushlagichi</li>
+        </ul>
+    </section>
+    <hr class="border-red-600 xl:flex hidden border-[1px]">
+    <section class="container sm:px-10 px-6">
+        <div class="flex items-center justify-center flex-col py-4">
+            <h1 class="sm:text-5xl text-3xl font-bold"><span class="text-red-600 font-bold">Avto</span>Aksessuarlar</h1>
+            <p class="sm:text-2xl text-xl text-center">Har xil turdagi AvtoAksessuarlar.Bizda sotib oling</p>
+        </div>
+    </section>
+    <section id="cardList" class="container sm:text-start text-center  font-bold m:px-10 px-6 py-10 grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
+        <div data-name="Cobalt uchun ixchamgina , 7d avtopoliklari" target="_blank" id="poliklar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600  border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg  md:h-[328px] md:w-[300px] w-full h-full" src="assets/img/cobaltpolik.jpg" alt="poliklar"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Cobalt uchun ixchamgina , 7d avtopoliklari</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">63 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">1 800 000 so'm</del>
+                    <span class="text-xl text-red-600">1 000 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avto polik, eva polik, evakor polik, 3d Chevrolet" target="_blank" id="poliklar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600  border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg md:h-[328px] md:w-[300px] w-full h-full" src="assets/img/polik.jpg" alt="poliklar"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avto polik, eva polik, evakor polik, 3d Chevrolet</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">24 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">750 000</del>
+                    <span class="text-xl text-red-600">340 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Yangi dizayn dagi Cobalt pulti uchun karbonli g'ilof" target="_blank" id="buyumlar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg md:h-[328px] md:w-[300px] w-full h-full" src="assets/img/mejikar.jpg" alt="mejikar"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Yangi dizayn dagi Cobalt pulti uchun karbonli g'ilo</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">4 256 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">62 000 so'm</del>
+                    <span class="text-xl text-red-600">47 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Bar Cobalt, Nexia, Onix, Matiz, Spark uchun" target="_blank" id="buyumlar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600  border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg md:h-[328px] md:w-[300px] w-full h-full" src="assets/img/bar.jpg" alt="bar"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Bar Cobalt, Nexia, Onix, Matiz, Spark uchun</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">11 346 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">302 000 so'm</del>
+                    <span class="text-xl text-red-600">162 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil uchun yostiqcha 2ta, UZB, GERB" target="_blank" id="buyumlar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600  border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[328px] w-[300px]" src="assets/img/yostiq.jpg" alt="yostiq"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil uchun yostiqcha 2ta, UZB, GERB</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">6 345 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">130 000 so'm</del>
+                    <span class="text-xl text-red-600">81 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil tozalagichlari Chevrolet Malibu 2" target="_blank" id="buyumlar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[200px] w-[300px]" src="assets/img/dvornik.jpg" alt="dvornik"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil tozalagichlari Chevrolet Malibu 2</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">10 899 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">200 000 so'm</del>
+                    <span class="text-xl text-red-600">120 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil zaryadlovchisi 3 ta rozetkali va UZB portli" target="_blank" id="telefon"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+           <a href="card.html">
+             <div><img class="rounded-t-lg h-[200px] w-[300px]" src="assets/img/zaryad.jpg" alt="zaryadchik"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil zaryadlovchisi 3 ta rozetkali va UZB portli</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">8 899 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">170 000 so'm</del>
+                    <span class="text-xl text-red-600">100 000 so'm</span>
+                </div>
+            </div>
+           </a>
+        </div>
+        <div data-name="Avtomobil tozalagichlari Chevrolet lexus uslubidagi" target="_blank" id="buyumlar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+           <a href="card.html">
+             <div><img class="rounded-t-lg h-[200px] w-[300px]" src="assets/img/dvornikk.jpg" alt="dvornik"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil tozalagichlari Chevrolet lexus uslubidagi</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">12 899 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">210 000 so'm</del>
+                    <span class="text-xl text-red-600">160 000 so'm</span>
+                </div>
+            </div>
+           </a>
+        </div>
+        <div data-name="Avtomobil magnit telefon ushlagichi" target="_blank" id="telefon"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[200px] w-[300px]" src="assets/img/magnit.jpg" alt="magnit"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil magnit telefon ushlagichi</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">8 899 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">92 000 so'm</del>
+                    <span class="text-xl text-red-600">75 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="" target="_blank" id="telefon"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[200px] w-[300px]" src="assets/img/modulyator.jpg" alt="modulyator"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Qo'shimcha LED faralarni boshqarish bloki</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">9 292 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">120 000 so'm</del>
+                    <span class="text-xl text-red-600">97 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Damas orqa eshigi uchun temir tutqich" target="_blank" id="buyumlar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[200px] w-[300px]" src="assets/img/ushlagich damas.jpg" alt="ushlagich"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Damas orqa eshigi uchun temir tutqich</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">9 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">123 000 so'm</del>
+                    <span class="text-xl text-red-600">90 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil muzlatgichi Alpicool TBW-35" target="_blank" id="conditsioner"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[200px] w-[300px]" src="assets/img/muzlatgich1.jpg" alt="muzlatgich"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil muzlatgichi Alpicool TBW-35</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">874 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">8 773 000 so'm</del>
+                    <span class="text-xl text-red-600">7 457 050 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil muzlatgichi Alpicool T-36" target="_blank" id="conditsioner"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+           <a href="card.html">
+             <div><img class="rounded-t-lg h-[200px] w-[300px]" src="assets/img/muzlatgich2.jpg" alt="muzlatgich"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil muzlatgichi Alpicool T-36</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">688 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">6 999 000 so'm</del>
+                    <span class="text-xl text-red-600">5 938 000 so'm</span>
+                </div>
+            </div>
+           </a>
+        </div>
+        <div data-name="Avtomobil muzlatgichi Alpicool CL-40" target="_blank" id="conditsioner"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[200px] w-[300px]" src="assets/img/muzlatgich3.jpg" alt="muzlatgich"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil muzlatgichi Alpicool CL-40</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">605 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">6 123 000 so'm</del>
+                    <span class="text-xl text-red-600">5 324 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil muzlatgichi Alpicool SX-30" target="_blank" id="conditsioner"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[200px] w-[300px]" src="assets/img/muzlatgich.jpg" alt="muzlatgich"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil muzlatgichi Alpicool SX-30</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">559 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">5 232 000 so'm</del>
+                    <span class="text-xl text-red-600">4 987 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil havo spreyi 'Vertolyot'" target="_blank" id="buyumlar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+           <a href="card.html">
+             <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/vertolyot.jpg" alt="vertolyot"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil havo spreyi 'Vertolyot'</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">10 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">120 000 so'm</del>
+                    <span class="text-xl text-red-600">80 000 so'm</span>
+                </div>
+            </div>
+           </a>
+        </div>
+        <div data-name="Avtomobil changyutgichi Hand Held K-9" target="_blank" id="buyumlar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/plisos.jpg" alt="plisos"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil changyutgichi Hand Held K-9</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">18 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">280 000 so'm</del>
+                    <span class="text-xl text-red-600">158 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil uchun telefon ushlagichi MagSaf" target="_blank" id="telefon"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/podstavka.jpg" alt="podstavka"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil uchun telefon ushlagichi MagSaf</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">9 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">122 000 so'm</del>
+                    <span class="text-xl text-red-600">64 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="" target="_blank" id="telefon"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/zaryadchikk.jpg" alt="zaryadchik"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">4ta tez zaryadlash portiga ega USB</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">17 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">255 000 so'm</del>
+                    <span class="text-xl text-red-600">155 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil Havo spreyi 'vertolyot'" target="_blank" id="buyumlar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/vertolyott.jpg" alt="vertolyot"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil Havo spreyi 'vertolyot'</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">10 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">120 000 so'm</del>
+                    <span class="text-xl text-red-600">80 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil Havo spreyi 'vertolyot'" target="_blank" id="buyumlar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/vertol.jpg" alt="vertolyot"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil Havo spreyi 'vertolyot'</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">10 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">120 000 so'm</del>
+                    <span class="text-xl text-red-600">80 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil Havo spreyi 'vertolyot'" target="_blank" id="buyumlar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+           <a href="card.html">
+             <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/vertoly.jpg" alt="vertolyot"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil Havo spreyi 'vertolyot'</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">10 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">120 000 so'm</del>
+                    <span class="text-xl text-red-600">80 000 so'm</span>
+                </div>
+            </div>
+           </a>
+        </div>
+        <div data-name="Avtomobil Havo spreyi 'vertolyot'" target="_blank" id="buyumlar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/vertolyo.jpg" alt="vertolyot"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil Havo spreyi 'vertolyot'</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">10 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">120 000 so'm</del>
+                    <span class="text-xl text-red-600">80 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil muzlatgichi Alpicool SX-30" target="_blank" id="buyumlar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/vertolyott.jpg" alt="vertolyot"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil muzlatgichi Alpicool SX-30</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">559 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">5 232 000 so'm</del>
+                    <span class="text-xl text-red-600">4 987 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil ushlagichi magnitli" target="_blank" id="telefon"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+           <a href="card.html">
+             <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/magnit.jpg" alt="magnit"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil ushlagichi magnitli</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">6 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">80 000 so'm</del>
+                    <span class="text-xl text-red-600">50 000 so'm</span>
+                </div>
+            </div>
+           </a>
+        </div>
+        <div data-name="Avtomobil magnit simsiz zaryadlovchi 10V" target="_blank" id="telefon"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/magnitt.jpg" alt="magnit"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil magnit simsiz zaryadlovchi 10V</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">70 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">675 000 so'm</del>
+                    <span class="text-xl text-red-600">573 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil kuzovini quritish uchun mikrofiber" target="_blank" id="buyumlar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/marli.jpg" alt="marli"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil kuzovini quritish uchun mikrofiber</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">8 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">70 000 so'm</del>
+                    <span class="text-xl text-red-600">62 450 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="4 To'xtash joyi sensori Avtomobil" target="_blank" id="telefon"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/sensor.jpg" alt="sensor"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">4 To'xtash joyi sensori Avtomobil</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">43 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">423 000 so'm</del>
+                    <span class="text-xl text-red-600">387 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil tomida taksi uchun yorig'lik" target="_blank" id="buyumlar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/taxi.jpg" alt="taxi"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil tomida taksi uchun yorig'lik</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">11 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">120 000 so'm</del>
+                    <span class="text-xl text-red-600">99 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil uchun tortish arqoni" target="_blank" id="buyumlar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+           <a href="card.html">
+             <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/tortish arqoni.jpg" alt="arqon"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil uchun tortish arqoni</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">24 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">230 000 so'm</del>
+                    <span class="text-xl text-red-600">178 000 so'm</span>
+                </div>
+            </div>
+           </a>
+        </div>
+        <div data-name="Elektr avtomobil uchun zaryadlovchi" target="_blank" id="telefon"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/zaryad byd.jpg" alt="zaryad_byd"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Elektr avtomobil uchun zaryadlovchi</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">351 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">3 538 000 so'm</del>
+                    <span class="text-xl text-red-600">2 987 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Telefon uchun zaryadlovchi" target="_blank" id="telefon"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/zaryad.jpg" alt="zaryadchik"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Telefon uchun zaryadlovchi</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">21 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">250 000 so'm</del>
+                    <span class="text-xl text-red-600">198 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Telefon uchun zaryadlovchi" target="_blank" id="telefon"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+           <a href="card.html">
+             <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/zaryadchiik.jpg" alt="zaryadchik"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Telefon uchun zaryadlovchi </span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">23 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">267 000 so'm</del>
+                    <span class="text-xl text-red-600">189 000 so'm</span>
+                </div>
+            </div>
+           </a>
+        </div>
+        <div data-name="Avtomobil zaryadlagichi 3tali USB" target="_blank" id="telefon"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/zaryadchikk.jpg" alt="zaryadchik"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil zaryadlagichi 3tali USB</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">24 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">430 000 so'm</del>
+                    <span class="text-xl text-red-600">398 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil starteri Hoso QS Land 8000 mA/soat" target="_blank" id="telefon"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/starter.jpg" alt="starter"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil starteri Hoso QS Land 8000 mA/soat</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">123 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">1 429 000 so'm</del>
+                    <span class="text-xl text-red-600">1 069 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Tezlik raqamlari yoritishi bilan qo'lda uzatish" target="_blank" id="buyumlar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/skorost.jpg" alt="skorost"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Tezlik raqamlari yoritishi bilan qo'lda uzatish</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">18 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">180 000 so'm</del>
+                    <span class="text-xl text-red-600">152 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="1 boshli mashina sovutish viltelnatori" target="_blank" id="buyumlar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/viltelnator.jpg" alt="viltelnator"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">1 boshli mashina sovutish viltelnatori</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">11 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">145 000 so'm</del>
+                    <span class="text-xl text-red-600">102 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil zvukovoy signal signal" target="_blank" id="modulyator"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/signal.jpg" alt="signal"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil zvukovoy signal signal</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">20 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">280 000 so'm</del>
+                    <span class="text-xl text-red-600">200 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobiil rulda qopqog'i Karbon tolasi" target="_blank" id="modulyator"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+           <a href="card.html">
+             <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/rul qopqogi.jpg" alt="rul"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobiil rulda qopqog'i Karbon tolasi</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">15 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">190 000 so'm</del>
+                    <span class="text-xl text-red-600">132 000 so'm</span>
+                </div>
+            </div>
+           </a>
+        </div>
+        <div data-name="Jmary MH-79 62236 Atomobil magnit" target="_blank" id="telefon"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/pod.jpg" alt="podstavka"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Jmary MH-79 62236 Atomobil magnit</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">17 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">190 000 so'm</del>
+                    <span class="text-xl text-red-600">120 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Jmary MH-79 62236 Atomobil magnit" target="_blank" id="telefon"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/podstavka.jpeg" alt="podstavka"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Jmary MH-79 62236 Atomobil magnit</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">19 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">199 000 so'm</del>
+                    <span class="text-xl text-red-600">130 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Jmary MH-79 62236 Atomobil magnit" target="_blank" id="telefon"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/podstavka.jpg" alt="podstavka"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Jmary MH-79 62236 Atomobil magnit</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">18 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">189 000 so'm</del>
+                    <span class="text-xl text-red-600">123 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Hoco di31 black 62329 avtomobil changyutgichi" target="_blank" id="buyumlar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/plisos.jpeg" alt="plisos"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Hoco di31 black 62329 avtomobil changyutgichi</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">53 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">560 000 so'm</del>
+                    <span class="text-xl text-red-600">450 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil changyutgichi Hand Held K-9" target="_blank" id="buyumlar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/plisos.jpg" alt="plisos"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil changyutgichi Hand Held K-9</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">19 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">210 000 so'm</del>
+                    <span class="text-xl text-red-600">154 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="nakidka massaj jild avtomobil uchun" target="_blank" id="buyumlar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[250px] w-[300px]" src="assets/img/nakidka.jpg" alt="nakidka"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">nakidka massaj jild avtomobil uchun</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">46 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">420 000 so'm</del>
+                    <span class="text-xl text-red-600">387 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil oldi uchun pardalar" target="_blank" id="buyumlar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[300px] w-[300px]" src="assets/img/parda.jpg" alt="parda"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil oldi uchun pardalar</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">14 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">178 000 so'm</del>
+                    <span class="text-xl text-red-600">120 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil havo spreyi 'vertolyot'" target="_blank" id="zaryad"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[300px] w-[300px]" src="assets/img/vertolyot.jpg" alt="vertolyot"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil havo spreyi 'vertolyot'</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">13 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">120 000 so'm</del>
+                    <span class="text-xl text-red-600">84 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil va uy uchun havo namlagichi" target="_blank" id="buyumlar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[300px] w-[300px]" src="assets/img/osvejitel.jpg" alt="osvejitel"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil va uy uchun havo namlagichi</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">11 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">120 000 so'm</del>
+                    <span class="text-xl text-red-600">99 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Magistral organizator sumkasi" target="_blank" id="buyumlar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[300px] w-[300px]" src="assets/img/sumka.jpg" alt="sumka"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Magistral organizator sumkasi</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">43 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">398 000 so'm</del>
+                    <span class="text-xl text-red-600">365 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Ajoyib Mersedes deflektorlari" target="_blank" id="conditsioner"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[300px] w-[300px]" src="assets/img/deflektor.jpeg" alt="deflektor"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Ajoyib Mersedes deflektorlari</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">11 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">187 000 so'm</del>
+                    <span class="text-xl text-red-600">103 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Bagaj poliklari Cobalt, BYD, Jentra..." target="_blank" id="poliklar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+           <a href="card.html">
+             <div><img class="rounded-t-lg h-[330px] w-[300px]" src="assets/img/bagajpolik.jpg" alt="bagajpolik"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Bagaj poliklari Cobalt, BYD, Jentra...</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">13 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">320 000 so'm</del>
+                    <span class="text-xl text-red-600">200 000 so'm</span>
+                </div>
+            </div>
+           </a>
+        </div>
+        <div data-name="Avtomobil uchun polik 'evo polik champion'" target="_blank" id="poliklar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[330px] w-[300px]" src="assets/img/pollik.jpg" alt="poliklar"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil uchun polik 'evo polik champion'</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">42 216 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">1 080 000 so'm</del>
+                    <span class="text-xl text-red-600">610 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil uchun qizil evakor poliklari" target="_blank" id="poliklar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[330px] w-[300px]" src="assets/img/qizilpolik.jpg" alt="poliklar"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil uchun qizil evakor poliklari</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">45 000 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">1 200 000 so'm</del>
+                    <span class="text-xl text-red-600">680 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Yukxona poddoni uchun polik kovrik" target="_blank" id="poliklar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[330px] w-[300px]" src="assets/img/polikkk.jpg" alt="poliklar"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Yukxona poddoni uchun polik kovrik</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">4 100 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">143 000 so'm</del>
+                    <span class="text-xl text-red-600">58 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Spark saloni uchun rezinoviy poliklar" target="_blank" id="poliklar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[330px] w-[300px]" src="assets/img/poolik.jpg" alt="poliklar"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Spark saloni uchun rezinoviy poliklar</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">7 220 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">117 000 so'm</del>
+                    <span class="text-xl text-red-600">87 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil linonim pol Spark,Jentra,Cobalt..." target="_blank" id="poliklar"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[330px] w-[300px]" src="assets/img/linonim.jpg" alt="linonim"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil linonim pol Spark,Jentra,Cobalt...</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">62 220 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">720 000 so'm</del>
+                    <span class="text-xl text-red-600">520 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil rulining boshqaruv panellari" target="_blank" id="modulyator"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+           <a href="card.html">
+             <div><img class="rounded-t-lg h-[300px] w-[300px]" src="assets/img/rul.jpg" alt="rul"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil rulining boshqaruv panellari</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">34 220 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">380 000 so'm</del>
+                    <span class="text-xl text-red-600">303 000 so'm</span>
+                </div>
+            </div>
+           </a>
+        </div>
+        <div data-name="Simsiz avtomobil FM-transmiteri Yesido YAU32" target="_blank" id="modulyator"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[300px] w-[300px]" src="assets/img/fm-uzatuvchi.jpeg" alt="fm-modulyator"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Simsiz avtomobil FM-transmiteri Yesido YAU32</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">21 220 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">250 000 so'm</del>
+                    <span class="text-xl text-red-600">189 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomobil zaryodlovchi bilan FM uzatuvchi Baseus" target="_blank" id="modulyator"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[300px] w-[300px]" src="assets/img/fm2.jpeg" alt="fm-modulyator"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomobil zaryodlovchi bilan FM uzatuvchi Baseus</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">22 220 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">260 000 so'm</del>
+                    <span class="text-xl text-red-600">170 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="FM transimetri Hoco E51 35327 sp-phone35327" target="_blank" id="modulyator"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+           <a href="card.html">
+             <div><img class="rounded-t-lg h-[300px] w-[300px]" src="assets/img/fm3.jpg" alt="fm-modulyator"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">FM transimetri Hoco E51 35327 sp-phone35327</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">26 220 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">355 000 so'm</del>
+                    <span class="text-xl text-red-600">222 000 so'm</span>
+                </div>
+            </div>
+           </a>
+        </div>
+        <div data-name="FM transimetri Hoco E51 35327 sp-phone35327" target="_blank" id="modulyator"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[300px] w-[300px]" src="assets/img/fm4.jpeg" alt="fm-modulyator"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">FM transimetri Hoco E51 35327 sp-phone35327</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">27 220 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">325 000 so'm</del>
+                    <span class="text-xl text-red-600">230 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Avtomatik 38336 uchun e58 Magic music" target="_blank" id="modulyator"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[300px] w-[300px]" src="assets/img/fm5.jpeg" alt="fm-modulyator"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Avtomatik 38336 uchun e58 Magic music</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">23 220 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">320 000 so'm</del>
+                    <span class="text-xl text-red-600">210 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Bluetooth adapter BOROFONE BC35 39839" target="_blank" id="modulyator"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[300px] w-[300px]" src="assets/img/fm6.jpeg" alt="fm-modulyator"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Bluetooth adapter BOROFONE BC35 39839</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">26 220 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">195 000 so'm</del>
+                    <span class="text-xl text-red-600">115 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Bluetooth adapter BOROFONE BC42" target="_blank" id="modulyator"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[300px] w-[300px]" src="assets/img/fm7.jpeg" alt="fm-modulyator"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Bluetooth adapter BOROFONE BC42</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">21 220 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">220 000 so'm</del>
+                    <span class="text-xl text-red-600">178 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="Bluetooth adapter BOROFONE BC35" target="_blank" id="modulyator"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+           <a href="card.html">
+             <div><img class="rounded-t-lg h-[300px] w-[300px]" src="assets/img/fm9.jpeg" alt="fm-modulyator"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Bluetooth adapter BOROFONE BC35</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">21 220 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">250 000 so'm</del>
+                    <span class="text-xl text-red-600">198 000 so'm</span>
+                </div>
+            </div>
+           </a>
+        </div>
+        <div data-name="Simsiz audio adapter Yesido YAU25" target="_blank" id="modulyator"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[300px] w-[300px]" src="assets/img/fm7.jpeg" alt="fm-modulyator"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">Simsiz audio adapter Yesido YAU25</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">11 220 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">120 000 so'm</del>
+                    <span class="text-xl text-red-600">84 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="FM modulyator remax Hoco E59" target="_blank" id="modulyator"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[300px] w-[300px]" src="assets/img/fm10.jpeg" alt="fm-modulyator"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">FM modulyator remax Hoco E59</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">17 220 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">189 000 so'm</del>
+                    <span class="text-xl text-red-600">132 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="FM modulyator Borofone BC16" target="_blank" id="modulyator"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+           <a href="card.html">
+             <div><img class="rounded-t-lg h-[300px] w-[300px]" src="assets/img/fm11.jpeg" alt="fm-modulyator"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">FM modulyator Borofone BC16</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">24 220 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">220 000 so'm</del>
+                    <span class="text-xl text-red-600">200 000 so'm</span>
+                </div>
+            </div>
+           </a>
+        </div>
+        <div data-name="FM modulyator remax Hoco E67" target="_blank" id="modulyator"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[300px] w-[300px]" src="assets/img/fm12.jpeg" alt="fm-modulyator"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">FM modulyator remax Hoco E67</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">17 220 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">190 000 so'm</del>
+                    <span class="text-xl text-red-600">145 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="FM modulyator remax Hoco E45" target="_blank" id="modulyator"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[300px] w-[300px]" src="assets/img/fm13.jpeg" alt="fm-modulyator"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">FM modulyator remax Hoco E45</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">22 220 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">200 000 so'm</del>
+                    <span class="text-xl text-red-600">144 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="FM modulyator  remax Hoco E62" target="_blank" id="modulyator"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[300px] w-[300px]" src="assets/img/fm14.jpg" alt="fm-modulyator"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">FM modulyator  remax Hoco E62</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">27 220 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">250 000 so'm</del>
+                    <span class="text-xl text-red-600">200 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="FM modulyator Borofone BC26" target="_blank" id="modulyator"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[300px] w-[300px]" src="assets/img/fm-15.jpeg" alt="fm-modulyator"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">FM modulyator Borofone BC26</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">13 220 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">159 000 so'm</del>
+                    <span class="text-xl text-red-600">112 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div data-name="FM modulyator Remax RCC109" target="_blank" id="modulyator"  class="card grid-item flex cursor-pointer items-center justify-center flex-col rounded-lg shadow-lg hover:border-red-600 border-white transition hover:-translate-y-[4px]">
+            <a href="card.html">
+                <div><img class="rounded-t-lg h-[300px] w-[300px]" src="assets/img/fm17.jpg" alt="fm-modulyator"></div>
+            <div class="p-4 space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-lg">FM modulyator Remax RCC109</span>
+                    <span class="px-2 rounded-md bg-red-600 text-white text-lg">18 220 so'm/oyiga</span>
+                </div>
+                <div class="flex flex-col">
+                    <del class="text-slate-500">199 000 so'm</del>
+                    <span class="text-xl text-red-600">150 000 so'm</span>
+                </div>
+            </div>
+            </a>
+        </div>
+    </section>
+    <section class="container flex items-center justify-center flex-col sm:px-10 px-6">
+    <div>
+        <h3 class="sm:text-4xl text-2xl font-bold  py-4">Avtomobil aksessuarlari</h3>
+        <p class="sm:text-xl text-sm">Har bir inson yangi mashina sotib olishni orzu qiladi. Ba'zi odamlar bu orzulariga darhol erisha oladi, ba'zilari esa vaqti kelganda. Yana bir turdagi odam borki, o‘ziga tegishli mashinani ham, yangisini ham boshqaradi. Xo'sh, sabab nima bo'lishi mumkin? Albatta, bu odamlarning g'amxo'rligi, o'z mavzusiga bo'lgan mehrlari va albatta, ularning avtomobillarini toza va hech qanday zamonaviy avtomobillardan qolishmaydigan mahsulotlar, ya'ni avtomobil aksessuarlari. Ammo bu yangi vatomobil sotib olganlar bunday mahsulotlardan foydalanmasligi mumkin degani emas. Shuningdek, yangi avtomashina egalari yangi mashinasiga ehtiyotkorona munosabatda bo'lishlari, unga e'tiborli bo'lishlari va, albatta, uni toza va zamon bilan hamohang, zamonaviy jihoz va aksessuarlar bilan ta'minlashlari tavsiya etiladi . Biz avtomobil aksessuarlari haqida gapirayotganimiz sababli, ular nima ekanligi, ularni qanday tanlash kerakligi yoki ularni qaerdan qulay va qulay narxlarda sotib olish mumkinligi haqida savollar tug'ilishi mumkin. Quyida yuqoridagi barcha savollarga javob topasiz.</p>
+    </div> 
+    <div>
+        <h3 class="sm:text-4xl text-2xl font-bold  py-4">Avtomobil aksessuarlari haqida</h3>
+        <p class="sm:text-xl text-sm">Hammamizga ma'lumki, avtomobil aksessuarlari sizning avtomobilingiz uchun kerak bo'lgan narsadir va ular boshqacha. Misol uchun, haydovchi ularni yoniga osib qo'yishi va ulardan bahramand bo'lishi uchun mashinangizni bezashga yordam beradigan turli xil rasmlar yoki maketlar, aerobruskalar, avtomobil o'rindiqlari yoki o'rindiqlar uchun tagliklar. Lekin siz bizning Olcha.uzsiz bizning onlayn do'konimizda siz bugungi kunda eng kerakli, eng foydali avtomobil purkagichlari, avtomobil uchun telefon ushlagichlari va avtomobil changyutgichlarini topishingiz mumkin. Ushbu avtomobil aksessuarlaridan istalgan vaqtda va istalgan vaziyatda bemalol foydalanishingiz mumkin. Chunki ular siz bilan mashinada olib yurish uchun juda qulay.
+            Uyda ham, ofisda ham xushbo'ylik va nafislik avtomobilingizga kirib borishini istasangiz, Areon Ken avtomobil spreylaridan foydalanishingiz mumkin, ular nozik hidlarning ajoyib tanlovidir. Nafaqat o'zingizga, balki atrofingizdagilarga ham yaxshi kayfiyat va xushbo'y hidli betakror sayohat qiling.
+            
+            Sayohatingizni yoki sayohatingizni xavfsizroq qilish uchun telefoningizdan osongina mashinangizda foydalanishingiz mumkin. Bu magnit qatlam yordamida yaratilgan alyuminiy, borofon va avtomobil telefonlari ushlagichlari yordamida amalga oshiriladi. Qolaversa, telefoningiz doimo oldingizda bo'ladi, uni izlab vaqtingizni behuda sarflashni to'xtatishingiz shart emas. O'zingiz va yaqinlaringiz xavfsizligi uchun avtomobil telefon ushlagichlaridan foydalaning.
+            
+            Mashinaning ozoda va ozoda bo'lishi muhim va bu tozalik odamlarga o'zgacha kayfiyat bag'ishlaydi. Buning uchun faqat avtoulovlarni yuvish xizmatlaridan foydalanish o'z-o'zidan kamchilik, albatta. Bunday holda, bizning yordamimizga avtomobil changyutgichlari keladi. Haddan tashqari tezlik, 65 Vt quvvat, 7800 mA/soat batareya va chiroq funksiyalariga ega hoko S20 kabi avtomobil changyutgichlari har doim avtomobilingizni toza va bepul saqlash kafolati hisoblanadi.</p>
+    </div> 
+    <div>
+        <h3 class="sm:text-4xl text-2xl font-bold py-4">Avtomobil aksessuarlarini onlayn xarid qiling</h3>
+        <p class="sm:text-xl text-sm">Har qanday mahsulot haqida, xoh telefon, xoh kompyuter bo'lsin, onlayn bilish uchun siz bizning veb-saytimizda avtomobil aksessuarlari va ularning narxlari va ular haqidagi ma'lumotlarni ham bilib olishingiz mumkin. Siz nafaqat ma'lumot olishingiz, balki avtomobil telefoni ushlagichini , original dizayndagi avtomobil changyutgichini yoki avtomobilingizdan foydalanishni yanada yoqimli qiladigan avtomobil purkagichlarini onlayn tarzda halol kreditga sotib olishingiz mumkin. Onlayn do'konimizda siz veb-sayt orqali o'zingiz tanlagan avto aksessuarlardan biriga buyurtma berishingiz va buyurtma berishingiz mumkin. Siz esa uydan chiqmasdan kerakli mahsulotni olasiz. Toshkent, Samarqand, Andijon, Buxoro va boshqa barcha viloyatlarga yetkazib berish amalga oshiriladi.</p>
+    </div>  
+    </section>
+    <hr class="border-[1px] border-red-600 mt-10">
+    <footer class="container grid lg:grid-cols-3 grid-row gap-6 m:px-10 px-6 py-6">
+        <div class="flex flex-col md:items-start items-center md:text-start text-center text-xl">
+            <a href="#head"><img class="w-[110px] h-[100px]" src="assets/img/avtologo.png" alt="footerlogo"></a>
+            <span>Qo'llab quvvatlash raqami</span>
+            <span class="font-bold">+998(97)031 0317</span>
+            <span>Yangiyo'l, Toshkent</span>
+        </div>
+        <div class="md:text-start text-center">
+            <h3 class="text-2xl text-red-600 font-bold">Ma'lumot</h3>
+            <div class="grid grid-cols-2 gap-4 sm:text-lg text-sm">
+                <ul>
+                    <li>Biz haqimizda</li>
+                    <li>Bo‘sh ish o‘rinlari</li>
+                    <li>Ommaviy oferta</li>
+                    <li>To‘lovni qaytarish va tovarlarni almashtirish</li>
+                    <li>Muddatli to’lov shartlari</li>
+                </ul>
+                <ul>
+                    <li>Shaxsiy ma‘lumotlar bilan ishlash bo‘yicha Siyosat</li>
+                    <li>To‘lov va yetkazib berish</li>
+                    <li>Bonus va aksiyalar</li>
+                    <li>Mahsulotlarni Olcha.uz da sotmoqchi bo’lgan sotuvchilar uchun oferta.</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <span class="flex items-center justify-center text-xl md:text-start text-center tb-12 text-red-600 font-bold">To'lovni qaysi bankdan to'laysiz?</span>
+            <div class="grid grid-cols-2 p-10  gap-4">
+                <button class="px-4 py-2 bg-red-600 text-white sm:text-xl text-sm hover:scale-105 rounded-lg">Uzummarket</a>
+                <button class="px-4 py-2 bg-red-600 text-white sm:text-xl text-sm hover:scale-105 rounded-lg">Plum</button>
+                <button class="px-4 py-2 bg-red-600 text-white sm:text-xl text-sm hover:scale-105 rounded-lg">Paynet</button>
+                <button class="px-4 py-2 bg-red-600 text-white sm:text-xl text-sm hover:scale-105 rounded-lg">Payme</button>
+                <button class="px-4 py-2 bg-red-600 text-white sm:text-xl text-sm hover:scale-105 rounded-lg">Humo</button>
+                <button class="px-4 py-2 bg-red-600 text-white sm:text-xl text-sm hover:scale-105 rounded-lg">Click</button>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="script.js"></script>
+</html>
