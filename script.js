@@ -37,41 +37,41 @@ function filterItems(type) {
     if (type == "1barchasi"){
         items.forEach(item => {
             if (item.id.startsWith("barchasi")) {
-                item.style.display = 'block'; // Show items with matching ID
+                item.style.display = 'block'; 
             } else {
-                item.style.display = 'block'; // Hide others
+                item.style.display = 'block'; 
             }
 
         });
         items.forEach(item => {
             if (item.id.startsWith("buyumlar")) {
-                item.style.display = 'block'; // Show items with matching ID
+                item.style.display = 'block'; 
             } else {
-                item.style.display = 'block'; // Hide others
+                item.style.display = 'block';
             }
 
         });
         items.forEach(item => {
             if (item.id.startsWith("conditsioner")) {
-                item.style.display = 'block'; // Show items with matching ID
+                item.style.display = 'block'; 
             } else {
-                item.style.display = 'block'; // Hide others
+                item.style.display = 'block'; 
             }
 
         });
         items.forEach(item => {
             if (item.id.startsWith("modulyator")) {
-                item.style.display = 'block'; // Show items with matching ID
+                item.style.display = 'block';
             } else {
-                item.style.display = 'block'; // Hide others
+                item.style.display = 'block'; 
             }
 
         });
         items.forEach(item => {
             if (item.id.startsWith("telefon")) {
-                item.style.display = 'block'; // Show items with matching ID
+                item.style.display = 'block'; 
             } else {
-                item.style.display = 'block'; // Hide others
+                item.style.display = 'block'; 
             }
 
         });
@@ -79,9 +79,9 @@ function filterItems(type) {
     }
     items.forEach(item => {
         if (item.id.startsWith(type)) {
-            item.style.display = 'block'; // Show items with matching ID
+            item.style.display = 'block'; 
         } else {
-            item.style.display = 'none'; // Hide others
+            item.style.display = 'none'; 
         }
     });
 }
@@ -111,41 +111,41 @@ function filterItems(type) {
     if (type == "barchasi"){
         items.forEach(item => {
             if (item.id.startsWith("barchasi")) {
-                item.style.display = 'block'; // Show items with matching ID
+                item.style.display = 'block'; 
             } else {
-                item.style.display = 'block'; // Hide others
+                item.style.display = 'block'; 
             }
 
         });
         items.forEach(item => {
             if (item.id.startsWith("buyumlar")) {
-                item.style.display = 'block'; // Show items with matching ID
+                item.style.display = 'block'; 
             } else {
-                item.style.display = 'block'; // Hide others
+                item.style.display = 'block'; 
             }
 
         });
         items.forEach(item => {
             if (item.id.startsWith("conditsioner")) {
-                item.style.display = 'block'; // Show items with matching ID
+                item.style.display = 'block'; 
             } else {
-                item.style.display = 'block'; // Hide others
+                item.style.display = 'block'; 
             }
 
         });
         items.forEach(item => {
             if (item.id.startsWith("modulyator")) {
-                item.style.display = 'block'; // Show items with matching ID
+                item.style.display = 'block'; 
             } else {
-                item.style.display = 'block'; // Hide others
+                item.style.display = 'block'; 
             }
 
         });
         items.forEach(item => {
             if (item.id.startsWith("telefon")) {
-                item.style.display = 'block'; // Show items with matching ID
+                item.style.display = 'block';
             } else {
-                item.style.display = 'block'; // Hide others
+                item.style.display = 'block';
             }
 
         });
@@ -153,29 +153,25 @@ function filterItems(type) {
     }
     items.forEach(item => {
         if (item.id.startsWith(type)) {
-            item.style.display = 'block'; // Show items with matching ID
+            item.style.display = 'block';
         } else {
-            item.style.display = 'none'; // Hide others
+            item.style.display = 'none'; 
         }
     });
 }
 
 
 // 4
- // Qidiruv inputi va karta ro'yxatini olish
-  // Qidiruv inputi va karta ro'yxatini olish
   const searchInput = document.getElementById("searchInput");
   const cardList = document.getElementById("cardList");
   const cards = document.querySelectorAll(".card");
 
-  // Qidiruvni amalga oshirish
   searchInput.addEventListener("input", function() {
       const searchTerm = searchInput.value.toLowerCase();
       
       cards.forEach(function(card) {
           const cardName = card.getAttribute("data-name").toLowerCase();
-          
-          // Agar karta nomi qidiruvga mos kelsa, uni ko'rsatish, aks holda yashirish
+
           if (cardName.includes(searchTerm)) {
               card.style.display = "block";
           } else {

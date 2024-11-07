@@ -78,20 +78,17 @@
             </div>
             <div class="flex items-center justify-around sm:space-x-8 space-x-4 m:px-10 px-6 lg:py-0 py-2">
                 <a href="#head"><img class="sm:w-[150px] w-[100px]" src="assets/img/avtologo.png" alt="avtologo"></a>
-            <button id="btn" class="sm:py-4 py-2 text-lg xl:hidden flex items-center justify-center gap-4 sm:px-6 px-4 border-2 hover:border-red-600 border-black text-black hover:text-red-600 font-bold rounded-lg">
-                <i class="fa-solid fa-bars"></i>
-                <span>Kategoriya</span>
-            </button>
-            <div class="w-full lg:flex hidden ">
-                <input id="searchInput" class="w-full bg-slate-200 rounded-l-lg  px-4 outline-none text-black" type="text" placeholder="Mahsulotni nomini kiriting">
-                <i class="py-4 px-8 bg-red-600 cursor-pointer rounded-r-lg text-xl fa-solid fa-magnifying-glass"></i>
+            
+            <div class="w-full flex">
+                <input id="searchInput" class="w-full py-4 bg-slate-200  rounded-lg  px-4 sm:outline-red-600 outline-slate-600 text-black" type="text" placeholder="Izlash">
+                <i class="py-4 sm:flex hidden px-8 bg-red-600 cursor-pointer ml-[-85px] rounded-r-lg text-xl fa-solid fa-magnifying-glass"></i>
             </div>
             <div class="flex text-black items-center justify-center space-x-12">
-                <div class="flex items-center justify-center flex-col text-lg cursor-pointer">
+                <div class="lg:flex hidden items-center justify-center flex-col text-lg cursor-pointer">
                     <i class="text-xl fa-solid fa-user"></i>
                     <span>Kirish</span>
                 </div>
-                <div class="sm:flex hidden items-center justify-center flex-col text-lg cursor-pointer">
+                <div class="lg:flex hidden items-center justify-center flex-col text-lg cursor-pointer">
                     <i class="text-xl fa-solid fa-cart-shopping"></i>
                     <span>Savatcha</span>
                 </div>
@@ -100,12 +97,20 @@
         </nav>
     </header>
     <section class="container">
-        <div class="w-full lg:hidden flex sm:px-10 px-6">
-            <input id="searchInput"  class="  w-full bg-slate-200 sm:rounded-l-lg rounded-lg  px-4 outline-none text-black" type="text" placeholder="Izlash">
-            <i class="py-4 sm:flex hidden px-8 bg-red-600 cursor-pointer text-white rounded-r-lg text-xl fa-solid fa-magnifying-glass"></i>
-            <div class="sm:hidden pl-4 flex items-center justify-center flex-col text-lg cursor-pointer">
-                <i class="text-xl fa-solid fa-cart-shopping"></i>
-                <span>Savatcha</span>
+        <div class="w-full lg:hidden flex items-center gap-2 justify-between sm:px-10 px-6">
+            <button id="btn" class="sm:py-4 py-2 text-lg xl:hidden flex items-center justify-center gap-4 sm:px-6 px-4 border-2 hover:border-red-600 border-black text-black hover:text-red-600 font-bold rounded-lg">
+                <i class="fa-solid fa-bars"></i>
+                <span>Kategoriya</span>
+            </button>
+            <div class="lg:hidden flex gap-2">
+                <div class="lg:hidden flex items-center justify-center flex-col text-lg cursor-pointer">
+                    <i class="text-xl fa-solid fa-user"></i>
+                    <span>Kirish</span>
+                </div>
+                <div class="lg::hidden pl-4 flex items-center justify-center flex-col text-lg cursor-pointer">
+                    <i class="text-xl fa-solid fa-cart-shopping"></i>
+                    <span>Savatcha</span>
+                </div>
             </div>
         </div>
         
@@ -1275,7 +1280,7 @@
                     <li>Shaxsiy ma‘lumotlar bilan ishlash bo‘yicha Siyosat</li>
                     <li>To‘lov va yetkazib berish</li>
                     <li>Bonus va aksiyalar</li>
-                    <li>Mahsulotlarni Olcha.uz da sotmoqchi bo’lgan sotuvchilar uchun oferta.</li>
+                    <li>Mahsulotlarni Avtoaksessuar.uz da sotmoqchi bo’lgan sotuvchilar uchun oferta.</li>
                 </ul>
             </div>
         </div>
