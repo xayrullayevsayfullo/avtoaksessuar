@@ -333,7 +333,41 @@ function displayCart() {
   }
 
   // Mahsulotni savatdan o'chirish funksiyasi
-  function removeFromCart(index) {
+  // Mahsulotni savatga qo'shish
+function addToCart() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Mahsulot haqida ma'lumot (bu yerda siz mahsulot nomi va narxini qo'llaysiz)
+    const product = {
+        name: "",
+        price: "", // Mahsulot narxini moslashtiring
+    };
+
+    // Mahsulotni savatga qo'shish
+    cart.push(product);
+
+    // Yangilangan savatni localStorage'ga saqlash
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    // Savatdagi mahsulotlar sonini yangilash
+    updateCartCount();
+}
+
+// Savatdagi mahsulotlar sonini yangilash
+function updateCartCount() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cartCount = document.getElementById("cart-count");
+    cartCount.textContent = cart.length; // Savatdagi mahsulotlar soni
+}
+
+// Sahifa yuklanganda savatdagi mahsulotlar sonini yangilash
+document.addEventListener("DOMContentLoaded", () => {
+    updateCartCount();
+});
+
+
+// Mahsulotni savatdan o'chirish
+function removeFromCart(index) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     // Mahsulotni ro'yxatdan olib tashlash
@@ -344,7 +378,40 @@ function displayCart() {
 
     // Sahifani yangilash
     displayCart();
-  }
 
-  // Sahifa yuklanganda savatni ko'rsatish
-  displayCart();
+    // Savatdagi mahsulotlar sonini yangilash
+    updateCartCount();
+}
+// Savatni ko'rsatish
+function displayCart() {
+    let cartItems = document.getElementById("cartItems");
+    let emptyCartMessage = document.getElementById("emptyCartMessage");
+    let promotion = document.getElementById("promotion");
+
+    // localStorage'dan savatdagi mahsulotlarni olish
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Agar savatda mahsulotlar bo'lsa
+    if (cart.length > 0) {
+        cartItems.innerHTML = ''; // Avvalgi ro'yxatni tozalash
+        cart.forEach((item, index) => {
+            let listItem = document.createElement("li");
+            listItem.classList.add();
+            listItem.innerHTML = `${item.price}600 000 so'm 
+                <button onclick="removeFromCart(${index})" class="text-red-600 text-sm ml-4"></button>`;
+            cartItems.appendChild(listItem);
+        });
+
+        // Bo'sh savat xabarini yashirish
+        emptyCartMessage.style.display = "none";
+        promotion.style.display = "block"; // Maxsus taklifni ko'rsatish
+    } else {
+        // Bo'sh savat holatida ro'yxatni tozalash va maxsus xabarni ko'rsatish
+        cartItems.innerHTML = "";
+        emptyCartMessage.style.display = "block";
+        promotion.style.display = "none"; // Maxsus taklifni yashirish
+    }
+}
+
+// Sahifa yuklanganda savatni ko'rsatish
+document.addEventListener('DOMContentLoaded', displayCart);
