@@ -194,18 +194,15 @@ function filterItems(type) {
     const royxatDiv = document.getElementById('royxat');
     const overlayDiv = document.getElementById('overlay');
     
-    // Make both the royxat div and overlay visible
     royxatDiv.classList.remove('hidden');
     overlayDiv.classList.remove('hidden');
     document.body.style.overflow="hidden";
 });
 
-// Close the overlay when clicked (optional)
 document.getElementById('overlay').addEventListener('click', () => {
     const royxatDiv = document.getElementById('royxat');
     const overlayDiv = document.getElementById('overlay');
     
-    // Hide both the royxat div and overlay
     royxatDiv.classList.add('hidden');
     overlayDiv.classList.add('hidden');
     document.body.style.overflow="";
@@ -217,7 +214,6 @@ document.getElementById('iconn').addEventListener('click', () => {
     const royxatDiv = document.getElementById('royxat');
     const overlayDiv = document.getElementById('overlay');
     
-    // Hide both the royxat div and overlay
     royxatDiv.classList.add('hidden');
     overlayDiv.classList.add('hidden');
     document.body.style.overflow="";
@@ -232,18 +228,15 @@ document.querySelector('#loginnBtn').addEventListener('click', () => {
     const royxattDiv = document.getElementById('royxatt');
     const overlayyDiv = document.getElementById('overlayy');
     
-    // Make both the royxat div and overlay visible
     royxattDiv.classList.remove('hidden');
     overlayyDiv.classList.remove('hidden');
     document.body.style.overflow="hidden";
 });
 
-// Close the overlay when clicked (optional)
 document.getElementById('overlayy').addEventListener('click', () => {
     const royxattDiv = document.getElementById('royxatt');
     const overlayyDiv = document.getElementById('overlayy');
     
-    // Hide both the royxat div and overlay
     royxattDiv.classList.add('hidden');
     overlayyDiv.classList.add('hidden');
     document.body.style.overflow="";
@@ -255,7 +248,6 @@ document.getElementById('iconnn').addEventListener('click', () => {
     const royxattDiv = document.getElementById('royxatt');
     const overlayyDiv = document.getElementById('overlayy');
     
-    // Hide both the royxat div and overlay
     royxattDiv.classList.add('hidden');
     overlayyDiv.classList.add('hidden');
     document.body.style.overflow="";
@@ -267,16 +259,13 @@ document.getElementById('iconnn').addEventListener('click', () => {
 
 const buttons = document.querySelectorAll('.product-btn');
     
-    // Select the span element inside .product-price
     const priceSpan = document.querySelector('#product-price');
 
-    // Loop through each button and add click event listener
     buttons.forEach(button => {
       button.addEventListener('click', function() {
-        // Get the price from the button's data-price attribute
+
         const price = button.getAttribute('data-price');
         console.log(priceSpan)
-        // Update the price span with the new price
         priceSpan.textContent = price;
       });
     });
@@ -285,21 +274,19 @@ const buttons = document.querySelectorAll('.product-btn');
 
     let product = {
         name: "",
-        price: 600,  // Misol uchun, narx
+        price: 600, 
       };
   
-      // Mahsulotni savatga qo'shish funksiyasi
+
       function addToCart() {
-        // localStorage'dan avvalgi savatni olish yoki bo'sh ro'yxat yaratish
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
   
-        // Yangi mahsulotni savatga qo'shish
+
         cart.push(product);
   
-        // localStorage'ga saqlash
+
         localStorage.setItem("cart", JSON.stringify(cart));
-  
-        // Foydalanuvchiga bildirish
+ 
         alert(`${product.name} savatga qo'shildi!`);
       }
 
@@ -310,12 +297,12 @@ function displayCart() {
     let emptyCartMessage = document.getElementById("emptyCartMessage");
     let promotion = document.getElementById("promotion");
 
-    // localStorage'dan savatdagi mahsulotlarni olish
+
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    // Agar savatda mahsulotlar bo'lsa
+
     if (cart.length > 0) {
-      cartItems.innerHTML = ''; // Avvalgi ro'yxatni tozalash
+      cartItems.innerHTML = ''; 
       cart.forEach((item, index) => {
         let listItem = document.createElement("li");
         listItem.classList.add("cart-item");
@@ -324,76 +311,70 @@ function displayCart() {
       });
 
       emptyCartMessage.style.display = "none";
-      promotion.style.display = "block"; // Maxsus taklifni ko'rsatish
+      promotion.style.display = "block"; 
     } else {
       cartItems.innerHTML = "";
       emptyCartMessage.style.display = "block";
-      promotion.style.display = "none"; // Maxsus taklifni yashirish
+      promotion.style.display = "none"; 
     }
   }
 
-  // Mahsulotni savatdan o'chirish funksiyasi
-  // Mahsulotni savatga qo'shish
+
 function addToCart() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    // Mahsulot haqida ma'lumot (bu yerda siz mahsulot nomi va narxini qo'llaysiz)
     const product = {
         name: "",
-        price: "", // Mahsulot narxini moslashtiring
+        price: "",
     };
 
-    // Mahsulotni savatga qo'shish
+
     cart.push(product);
 
-    // Yangilangan savatni localStorage'ga saqlash
     localStorage.setItem("cart", JSON.stringify(cart));
 
-    // Savatdagi mahsulotlar sonini yangilash
+
     updateCartCount();
 }
 
-// Savatdagi mahsulotlar sonini yangilash
+
 function updateCartCount() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     let cartCount = document.getElementById("cart-count");
-    cartCount.textContent = cart.length; // Savatdagi mahsulotlar soni
+    cartCount.textContent = cart.length; 
 }
 
-// Sahifa yuklanganda savatdagi mahsulotlar sonini yangilash
+
 document.addEventListener("DOMContentLoaded", () => {
     updateCartCount();
 });
 
 
-// Mahsulotni savatdan o'chirish
 function removeFromCart(index) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    // Mahsulotni ro'yxatdan olib tashlash
     cart.splice(index, 1);
 
-    // Yangilangan savatni localStorage'ga saqlash
     localStorage.setItem("cart", JSON.stringify(cart));
 
-    // Sahifani yangilash
+
     displayCart();
 
-    // Savatdagi mahsulotlar sonini yangilash
+
     updateCartCount();
 }
-// Savatni ko'rsatish
+
 function displayCart() {
     let cartItems = document.getElementById("cartItems");
     let emptyCartMessage = document.getElementById("emptyCartMessage");
     let promotion = document.getElementById("promotion");
 
-    // localStorage'dan savatdagi mahsulotlarni olish
+
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    // Agar savatda mahsulotlar bo'lsa
+
     if (cart.length > 0) {
-        cartItems.innerHTML = ''; // Avvalgi ro'yxatni tozalash
+        cartItems.innerHTML = ''; 
         cart.forEach((item, index) => {
             let listItem = document.createElement("li");
             listItem.classList.add();
@@ -402,16 +383,15 @@ function displayCart() {
             cartItems.appendChild(listItem);
         });
 
-        // Bo'sh savat xabarini yashirish
+
         emptyCartMessage.style.display = "none";
-        promotion.style.display = "block"; // Maxsus taklifni ko'rsatish
+        promotion.style.display = "block"; 
     } else {
-        // Bo'sh savat holatida ro'yxatni tozalash va maxsus xabarni ko'rsatish
         cartItems.innerHTML = "";
         emptyCartMessage.style.display = "block";
-        promotion.style.display = "none"; // Maxsus taklifni yashirish
+        promotion.style.display = "none"; 
     }
 }
 
-// Sahifa yuklanganda savatni ko'rsatish
+
 document.addEventListener('DOMContentLoaded', displayCart);
