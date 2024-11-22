@@ -83,59 +83,111 @@
                 <input id="searchInput" class="w-full py-4 bg-slate-200  rounded-lg  px-4 sm:outline-red-600 outline-slate-600 text-black" type="text" placeholder="Izlash">
                 <i class="py-4 sm:flex hidden px-8 bg-red-600 cursor-pointer ml-[-85px] rounded-r-lg text-xl fa-solid fa-magnifying-glass"></i>
             </div>
-            <div class="flex text-black items-center justify-center space-x-12">
-                <div class="lg:flex hidden items-center justify-center flex-col text-lg cursor-pointer">
+            <div class="flex text-black items-center justify-center">
+                <button id="loginBtn" class="lg:flex pr-6 hidden items-center justify-center flex-col text-lg cursor-pointer">
                     <i class="text-xl fa-solid fa-user"></i>
-                    <span>Kirish</span>
+                    <span class="font-bold">Kirish</span>
+                </button>
+                <div id="overlay" class="hidden  absolute inset-0 bg-gray-500 bg-opacity-50 z-10"></div>
+                <div id="royxat" class="hidden modall absolute top-1/2 left-1/2 -translate-x-1/2 z-30 -translate-y-1/2">
+                    <div class="flex flex-col p-6 bg-white rounded-xl shadow-xl p-4">
+                        <div class="flex items-center pb-4">
+                            <i id="iconn" class="fa-solid fa-arrow-left"></i>
+                            <h1 class="text-2xl  font-bold px-14 ">Ro'yxatdan O'tish</h1>
+                        </div>
+
+                        <form action="register_user.php" method="POST">
+                            <input class="w-full border p-4 text-xl mt-2 rounded-xl" placeholder="Foydalanuvchi nomi" type="text" id="username" name="username" required><br><br>
+                           
+                            <input  class="w-full  border p-4 text-xl rounded-xl" placeholder="Email" type="email" id="email" name="email" required><br><br>
+
+                            <input  class="w-full  border p-4 text-xl rounded-xl" placeholder="Parol" type="password" id="password" name="password" required><br><br>
+                        
+                            <button class="px-6 rounded-xl bg-red-600 w-full text-white text-xl font-bold hover:bg-red-700 py-4">Kirish</button>
+                        </form>
+                            <a href="" class="pt-6 flex items-center justify-center">
+                                <img class="w-8" src="assets/img/google.png" alt=""><span class="font-bold">Google orqali kirish</span>
+                            </a>
+                            <a href="" class="pt-2 flex items-center justify-center ">
+                                <img class="w-8" src="assets/img/facebook.png" alt=""><span class="font-bold">Facebook orqali kirish</span>
+                            </a>
+                    </div>
                 </div>
-                <div class="lg:flex hidden items-center justify-center flex-col text-lg cursor-pointer">
+                <a href="savat.html"  id="cart-button" class="relative lg:flex hidden items-center justify-center flex-col text-lg cursor-pointer">
                     <i class="text-xl fa-solid fa-cart-shopping"></i>
-                    <span>Savatcha</span>
-                </div>
+                    <span class="font-bold">Savatcha</span>
+                </a>
+
             </div>
             </div>
         </nav>
     </header>
     <section class="container">
         <div class="w-full lg:hidden flex items-center gap-2 justify-between sm:px-10 px-6">
-            <button id="btn" class="sm:py-4 py-2 text-lg xl:hidden flex items-center justify-center gap-4 sm:px-6 px-4 border-2 hover:border-red-600 border-black text-black hover:text-red-600 font-bold rounded-lg">
+            <button id="btn" class="sm:py-4 py-2 text-lg xl:hidden flex items-center justify-center gap-4 sm:px-6 px-4 bg-red-600 text-white hover:bg-red-700 font-bold rounded-lg">
                 <i class="fa-solid fa-bars"></i>
                 <span>Kategoriya</span>
             </button>
             <div class="lg:hidden flex gap-2">
-                <div class="lg:hidden flex items-center justify-center flex-col text-lg cursor-pointer">
+                <div id="loginnBtn" class="lg:hidden flex items-center justify-center flex-col text-lg cursor-pointer">
                     <i class="text-xl fa-solid fa-user"></i>
-                    <span>Kirish</span>
+                    <span class="font-bold sm:text-lg text-sm">Kirish</span>
                 </div>
-                <div class="lg::hidden pl-4 flex items-center justify-center flex-col text-lg cursor-pointer">
+                <div id="overlayy" class="hidden  absolute inset-0 bg-gray-500 bg-opacity-50 z-10"></div>
+                <div id="royxatt" class="hidden modalll absolute top-1/2 left-1/2 -translate-x-1/2 z-30 -translate-y-1/2">
+                    <div class="flex flex-col p-6 bg-white rounded-xl shadow-xl p-4">
+                        <div class="flex items-center pb-4">
+                            <i id="iconnn" class="fa-solid fa-arrow-left"></i>
+                            <h1 class="text-2xl text-center font-bold px-14 ">Ro'yxatdan O'tish</h1>
+                        </div>
+
+                        <form action="register_user.php" method="POST">
+                            <input class="w-full border px-4 md:py-4 py-2 text-xl mt-2 rounded-xl" placeholder="Foydalanuvchi nomi" type="text" id="username" name="username" required><br><br>
+                           
+                            <input  class="w-full  border px-4 md:py-4 py-2 text-xl rounded-xl" placeholder="Email" type="email" id="email" name="email" required><br><br>
+
+                            <input  class="w-full  border px-4 md:py-4 py-2 text-xl rounded-xl" placeholder="Parol" type="password" id="password" name="password" required><br><br>
+                        
+                            <button class="px-4 md:py-4 py-2 rounded-xl bg-red-600 w-full text-white text-xl font-bold hover:bg-red-700">Kirish</button>
+                        </form>
+                            <a href="" class="pt-6 flex items-center justify-center">
+                                <img class="w-8" src="assets/img/google.png" alt=""><span class="font-bold">Google orqali kirish</span>
+                            </a>
+                            <a href="" class="pt-2 flex items-center justify-center ">
+                                <img class="w-8" src="assets/img/facebook.png" alt=""><span class="font-bold">Facebook orqali kirish</span>
+                            </a>
+                    </div>
+                </div>
+                <a href="savat.html" class="lg:hidden pl-4 flex items-center justify-center flex-col text-lg cursor-pointer">
                     <i class="text-xl fa-solid fa-cart-shopping"></i>
-                    <span>Savatcha</span>
-                </div>
+                    <span class="font-bold sm:text-lg text-sm">Savatcha</span>
+                </a>
             </div>
         </div>
         
     </section>
-    <hr class="border-red-600 border-[1px] xl:flex hidden mw-full">
-    <section class="container grid grid-cols-1 m:px-10 px-6">
-        <ul class="xl:flex hidden space-x-4 items-center  justify-around font-bold text-red-600  text-center py-4">
-            <li><button id="1barchasi" class="px-[14px] p-2 rounded-lg hover:bg-red-600 hover:text-white hover:transition">Barchasi</button></li>
-            <li><button id="1poliklar" class="px-[14px] p-2 rounded-lg hover:bg-red-600 hover:text-white hover:transition">Avtopoliklar va linonimlar</button></li>
-            <li><button id="1buyumlar" class="px-[14px] p-2 rounded-lg hover:bg-red-600 hover:text-white hover:transition">Avtomobil buyumlari</button></li>
-            <li><button id="1conditsioner" class="px-[14px] p-2 rounded-lg hover:bg-red-600 hover:text-white hover:transition">Avto muzlatgichlar</button></li>
-            <li><button id="1modulyator" class="px-[14px] p-2 rounded-lg hover:bg-red-600 hover:text-white hover:transition">FM-modulyator</button></li>
-            <li><button id="1telefon" class="px-[14px] p-2 rounded-lg hover:bg-red-600 hover:text-white hover:transition">Telefon zaryadlovchisi va ushlagichi</button></li>
+    <section class="lg:bg-red-600  grid grid-cols-1 m:px-10 mt-2 px-6">
+        <ul class="container lg:flex hidden space-x-4 items-center  justify-around font-bold text-red-600  text-center py-4">
+            <li><button id="1barchasi" class="text-white p-2 rounded-lg hover:bg-white text-sm hover:text-red-600 hover:transition">Barchasi</button></li>
+            <li><button id="1poliklar" class="text-white p-2 rounded-lg hover:bg-white text-sm hover:text-red-600 hover:transition">Avtopoliklar va linonimlar</button></li>
+            <li><button id="1buyumlar" class="text-white p-2 rounded-lg hover:bg-white text-sm hover:text-red-600 hover:transition">Avtomobil buyumlari</button></li>
+            <li><button id="1conditsioner" class="text-white p-2 rounded-lg hover:bg-white text-sm hover:text-red-600 hover:transition">Avto muzlatgichlar</button></li>
+            <li><button id="1modulyator" class="text-white p-2 rounded-lg hover:bg-white text-sm hover:text-red-600 hover:transition">FM-modulyator</button></li>
+            <li><button id="1telefon" class="text-white p-2 rounded-lg hover:bg-white text-sm hover:text-red-600 hover:transition">Telefon zaryadlovchisi va ushlagichi</button></li>
         </ul>
-        <ul class="hidden modal mt-2 font-bold fixed rounded-lg bg-slate-200 shadow-xl md:ml-[200px] lg:mt-2 border-red-600 border-2 mt-[-65px] sm:ml-[80px] ">
-            <i class="pr-4 font-bold text-red-600 pb-2 flex items-center justify-end pt-4 fa-solid fa-xmark"></i>
-            <li id="2barchasi" class="hover:bg-red-600 text-center px-6 py-2 hover:text-white">Barchasi</li>
-            <li id="2poliklar" class="hover:bg-red-600 text-center px-6 py-2 hover:text-white">Avtopoliklar va linonimlar</li>
-            <li id="2buyumlar" class="hover:bg-red-600 text-center px-6 py-2 hover:text-white">Avtomobil buyumlari</li>
-            <li id="2conditsioner" class="hover:bg-red-600 text-center px-6 py-2 hover:text-white">Avto muzlatgichlar</li>
-            <li id="2modulyator" class="hover:bg-red-600 text-center px-6 py-2 hover:text-white">FM-modulyator</li>
-            <li id="2telefon" class="hover:bg-red-600 text-center px-6 py-2 rounded-b-lg hover:text-white">Telefon zaryadlovchisi va ushlagichi</li>
-        </ul>
+        <div class=" hidden modal absolute top-1/2 left-1/2 -translate-x-1/2 z-30 -translate-y-1/2 ">
+        <div id="overlayyy" class="hidden  absolute inset-0 bg-gray-500 bg-opacity-50 z-10"></div>
+            <ul class="container flex flex-col items-center justify-center bg-white rounded-xl shadow-xl">
+                <i class="pl-[260px] pr-4 font-bold text-red-600 pb-2 flex items-center justify-end pt-4 fa-solid fa-xmark"></i>
+                <li id="2barchasi" class="hover:bg-red-600  px-6 text-center w-full py-2 hover:text-white">Barchasi</li>
+                <li id="2poliklar" class="hover:bg-red-600 px-6  text-center w-full py-2 hover:text-white">Avtopoliklar va linonimlar</li>
+                <li id="2buyumlar" class="hover:bg-red-600 px-6  text-center w-full py-2 hover:text-white">Avtomobil buyumlari</li>
+                <li id="2conditsioner" class="hover:bg-red-600 px-6  text-center w-full py-2 hover:text-white">Avto muzlatgichlar</li>
+                <li id="2modulyator" class="hover:bg-red-600 px-6  text-center w-full py-2 hover:text-white">FM-modulyator</li>
+                <li id="2telefon" class="hover:bg-red-600 px-6  text-center w-full py-2 rounded-b-lg hover:text-white">Telefon zaryadlovchisi va ushlagichi</li>
+            </ul>
+        </div>
     </section>
-    <hr class="border-red-600 xl:flex hidden border-[1px]">
     <section class="container sm:px-10 px-6">
         <div class="flex items-center justify-center flex-col py-4">
             <h1 class="sm:text-5xl text-3xl font-bold"><span class="text-red-600 font-bold">Avto</span>Aksessuarlar</h1>
@@ -1239,14 +1291,14 @@
             </a>
         </div>
     </section>
-    <section class="container flex items-center justify-center flex-col sm:px-10 px-6">
+    <section class="container sm:py-10 py-4 flex items-center justify-center flex-col sm:px-10 px-6">
     <div>
-        <h3 class="sm:text-4xl text-2xl font-bold  py-4">Avtomobil aksessuarlari</h3>
-        <p class="sm:text-xl text-sm">Har bir inson yangi mashina sotib olishni orzu qiladi. Ba'zi odamlar bu orzulariga darhol erisha oladi, ba'zilari esa vaqti kelganda. Yana bir turdagi odam borki, o‘ziga tegishli mashinani ham, yangisini ham boshqaradi. Xo'sh, sabab nima bo'lishi mumkin? Albatta, bu odamlarning g'amxo'rligi, o'z mavzusiga bo'lgan mehrlari va albatta, ularning avtomobillarini toza va hech qanday zamonaviy avtomobillardan qolishmaydigan mahsulotlar, ya'ni avtomobil aksessuarlari. Ammo bu yangi vatomobil sotib olganlar bunday mahsulotlardan foydalanmasligi mumkin degani emas. Shuningdek, yangi avtomashina egalari yangi mashinasiga ehtiyotkorona munosabatda bo'lishlari, unga e'tiborli bo'lishlari va, albatta, uni toza va zamon bilan hamohang, zamonaviy jihoz va aksessuarlar bilan ta'minlashlari tavsiya etiladi . Biz avtomobil aksessuarlari haqida gapirayotganimiz sababli, ular nima ekanligi, ularni qanday tanlash kerakligi yoki ularni qaerdan qulay va qulay narxlarda sotib olish mumkinligi haqida savollar tug'ilishi mumkin. Quyida yuqoridagi barcha savollarga javob topasiz.</p>
+        <h3 class="sm:text-3xl text-xl font-bold  py-4">Avtomobil aksessuarlari</h3>
+        <p class="sm:text-lg text-m">Har bir inson yangi mashina sotib olishni orzu qiladi. Ba'zi odamlar bu orzulariga darhol erisha oladi, ba'zilari esa vaqti kelganda. Yana bir turdagi odam borki, o‘ziga tegishli mashinani ham, yangisini ham boshqaradi. Xo'sh, sabab nima bo'lishi mumkin? Albatta, bu odamlarning g'amxo'rligi, o'z mavzusiga bo'lgan mehrlari va albatta, ularning avtomobillarini toza va hech qanday zamonaviy avtomobillardan qolishmaydigan mahsulotlar, ya'ni avtomobil aksessuarlari. Ammo bu yangi vatomobil sotib olganlar bunday mahsulotlardan foydalanmasligi mumkin degani emas. Shuningdek, yangi avtomashina egalari yangi mashinasiga ehtiyotkorona munosabatda bo'lishlari, unga e'tiborli bo'lishlari va, albatta, uni toza va zamon bilan hamohang, zamonaviy jihoz va aksessuarlar bilan ta'minlashlari tavsiya etiladi . Biz avtomobil aksessuarlari haqida gapirayotganimiz sababli, ular nima ekanligi, ularni qanday tanlash kerakligi yoki ularni qaerdan qulay va qulay narxlarda sotib olish mumkinligi haqida savollar tug'ilishi mumkin. Quyida yuqoridagi barcha savollarga javob topasiz.</p>
     </div> 
     <div>
-        <h3 class="sm:text-4xl text-2xl font-bold  py-4">Avtomobil aksessuarlari haqida</h3>
-        <p class="sm:text-xl text-sm">Hammamizga ma'lumki, avtomobil aksessuarlari sizning avtomobilingiz uchun kerak bo'lgan narsadir va ular boshqacha. Misol uchun, haydovchi ularni yoniga osib qo'yishi va ulardan bahramand bo'lishi uchun mashinangizni bezashga yordam beradigan turli xil rasmlar yoki maketlar, aerobruskalar, avtomobil o'rindiqlari yoki o'rindiqlar uchun tagliklar. Lekin siz bizning Avtoaksessuar.uzsiz bizning onlayn do'konimizda siz bugungi kunda eng kerakli, eng foydali avtomobil purkagichlari, avtomobil uchun telefon ushlagichlari va avtomobil changyutgichlarini topishingiz mumkin. Ushbu avtomobil aksessuarlaridan istalgan vaqtda va istalgan vaziyatda bemalol foydalanishingiz mumkin. Chunki ular siz bilan mashinada olib yurish uchun juda qulay.
+        <h3 class="sm:text-3xl text-xl font-bold  py-4">Avtomobil aksessuarlari haqida</h3>
+        <p class="sm:text-lg text-m">Hammamizga ma'lumki, avtomobil aksessuarlari sizning avtomobilingiz uchun kerak bo'lgan narsadir va ular boshqacha. Misol uchun, haydovchi ularni yoniga osib qo'yishi va ulardan bahramand bo'lishi uchun mashinangizni bezashga yordam beradigan turli xil rasmlar yoki maketlar, aerobruskalar, avtomobil o'rindiqlari yoki o'rindiqlar uchun tagliklar. Lekin siz bizning Avtoaksessuar.uzsiz bizning onlayn do'konimizda siz bugungi kunda eng kerakli, eng foydali avtomobil purkagichlari, avtomobil uchun telefon ushlagichlari va avtomobil changyutgichlarini topishingiz mumkin. Ushbu avtomobil aksessuarlaridan istalgan vaqtda va istalgan vaziyatda bemalol foydalanishingiz mumkin. Chunki ular siz bilan mashinada olib yurish uchun juda qulay.
             Uyda ham, ofisda ham xushbo'ylik va nafislik avtomobilingizga kirib borishini istasangiz, Areon Ken avtomobil spreylaridan foydalanishingiz mumkin, ular nozik hidlarning ajoyib tanlovidir. Nafaqat o'zingizga, balki atrofingizdagilarga ham yaxshi kayfiyat va xushbo'y hidli betakror sayohat qiling.
             
             Sayohatingizni yoki sayohatingizni xavfsizroq qilish uchun telefoningizdan osongina mashinangizda foydalanishingiz mumkin. Bu magnit qatlam yordamida yaratilgan alyuminiy, borofon va avtomobil telefonlari ushlagichlari yordamida amalga oshiriladi. Qolaversa, telefoningiz doimo oldingizda bo'ladi, uni izlab vaqtingizni behuda sarflashni to'xtatishingiz shart emas. O'zingiz va yaqinlaringiz xavfsizligi uchun avtomobil telefon ushlagichlaridan foydalaning.
@@ -1254,45 +1306,46 @@
             Mashinaning ozoda va ozoda bo'lishi muhim va bu tozalik odamlarga o'zgacha kayfiyat bag'ishlaydi. Buning uchun faqat avtoulovlarni yuvish xizmatlaridan foydalanish o'z-o'zidan kamchilik, albatta. Bunday holda, bizning yordamimizga avtomobil changyutgichlari keladi. Haddan tashqari tezlik, 65 Vt quvvat, 7800 mA/soat batareya va chiroq funksiyalariga ega hoko S20 kabi avtomobil changyutgichlari har doim avtomobilingizni toza va bepul saqlash kafolati hisoblanadi.</p>
     </div> 
     <div>
-        <h3 class="sm:text-4xl text-2xl font-bold py-4">Avtomobil aksessuarlarini onlayn xarid qiling</h3>
-        <p class="sm:text-xl text-sm">Har qanday mahsulot haqida, xoh telefon, xoh kompyuter bo'lsin, onlayn bilish uchun siz bizning veb-saytimizda avtomobil aksessuarlari va ularning narxlari va ular haqidagi ma'lumotlarni ham bilib olishingiz mumkin. Siz nafaqat ma'lumot olishingiz, balki avtomobil telefoni ushlagichini , original dizayndagi avtomobil changyutgichini yoki avtomobilingizdan foydalanishni yanada yoqimli qiladigan avtomobil purkagichlarini onlayn tarzda halol kreditga sotib olishingiz mumkin. Onlayn do'konimizda siz veb-sayt orqali o'zingiz tanlagan avto aksessuarlardan biriga buyurtma berishingiz va buyurtma berishingiz mumkin. Siz esa uydan chiqmasdan kerakli mahsulotni olasiz. Toshkent, Samarqand, Andijon, Buxoro va boshqa barcha viloyatlarga yetkazib berish amalga oshiriladi.</p>
+        <h3 class="sm:text-3xl text-xl font-bold py-4">Avtomobil aksessuarlarini onlayn xarid qiling</h3>
+        <p class="sm:text-lg text-m">Har qanday mahsulot haqida, xoh telefon, xoh kompyuter bo'lsin, onlayn bilish uchun siz bizning veb-saytimizda avtomobil aksessuarlari va ularning narxlari va ular haqidagi ma'lumotlarni ham bilib olishingiz mumkin. Siz nafaqat ma'lumot olishingiz, balki avtomobil telefoni ushlagichini , original dizayndagi avtomobil changyutgichini yoki avtomobilingizdan foydalanishni yanada yoqimli qiladigan avtomobil purkagichlarini onlayn tarzda halol kreditga sotib olishingiz mumkin. Onlayn do'konimizda siz veb-sayt orqali o'zingiz tanlagan avto aksessuarlardan biriga buyurtma berishingiz va buyurtma berishingiz mumkin. Siz esa uydan chiqmasdan kerakli mahsulotni olasiz. Toshkent, Samarqand, Andijon, Buxoro va boshqa barcha viloyatlarga yetkazib berish amalga oshiriladi.</p>
     </div>  
     </section>
-    <hr class="border-[1px] border-red-600 mt-10">
-    <footer class="container grid lg:grid-cols-3 grid-row gap-6 m:px-10 px-6 py-6">
-        <div class="flex flex-col md:items-start items-center md:text-start text-center text-xl">
-            <a href="#head"><img class="w-[110px] h-[100px]" src="assets/img/avtologo.png" alt="footerlogo"></a>
-            <span>Qo'llab quvvatlash raqami</span>
-            <span class="font-bold">+998(97)031 0317</span>
-            <span>Yangiyo'l, Toshkent</span>
-        </div>
-        <div class="md:text-start text-center">
-            <h3 class="text-2xl text-red-600 font-bold">Ma'lumot</h3>
-            <div class="grid grid-cols-2 gap-4 sm:text-lg text-sm">
-                <ul>
-                    <li>Biz haqimizda</li>
-                    <li>Bo‘sh ish o‘rinlari</li>
-                    <li>Ommaviy oferta</li>
-                    <li>To‘lovni qaytarish va tovarlarni almashtirish</li>
-                    <li>Muddatli to’lov shartlari</li>
-                </ul>
-                <ul>
-                    <li>Shaxsiy ma‘lumotlar bilan ishlash bo‘yicha Siyosat</li>
-                    <li>To‘lov va yetkazib berish</li>
-                    <li>Bonus va aksiyalar</li>
-                    <li>Mahsulotlarni Avtoaksessuar .uz da sotmoqchi bo’lgan sotuvchilar uchun oferta.</li>
-                </ul>
+    <footer class="bg-red-600">
+        <div class="container text-white font-bold grid lg:grid-cols-3 grid-row gap-6 m:px-10 px-6 py-6">
+            <div class="flex flex-col md:items-start items-center md:text-start text-center text-xl">
+                <a href="#head"><img class="w-[120px] h-[100px]" src="assets/img/loogo-removebg-preview.png" alt="footerlogo"></a>
+                <span>Qo'llab quvvatlash raqami</span>
+                <span class="font-bold">+998(97)031 0317</span>
+                <span>Yangiyo'l, Toshkent</span>
             </div>
-        </div>
-        <div>
-            <span class="flex items-center justify-center text-xl md:text-start text-center tb-12 text-red-600 font-bold">To'lovni qaysi bankdan to'laysiz?</span>
-            <div class="grid grid-cols-2 p-10  gap-4">
-                <button class="px-4 py-2 bg-red-600 text-white sm:text-xl text-sm hover:scale-105 rounded-lg">Uzummarket</a>
-                <button class="px-4 py-2 bg-red-600 text-white sm:text-xl text-sm hover:scale-105 rounded-lg">Plum</button>
-                <button class="px-4 py-2 bg-red-600 text-white sm:text-xl text-sm hover:scale-105 rounded-lg">Paynet</button>
-                <button class="px-4 py-2 bg-red-600 text-white sm:text-xl text-sm hover:scale-105 rounded-lg">Payme</button>
-                <button class="px-4 py-2 bg-red-600 text-white sm:text-xl text-sm hover:scale-105 rounded-lg">Humo</button>
-                <button class="px-4 py-2 bg-red-600 text-white sm:text-xl text-sm hover:scale-105 rounded-lg">Click</button>
+            <div class="md:text-start text-center">
+                <h3 class="text-2xl text-red-600 font-bold">Ma'lumot</h3>
+                <div class="grid grid-cols-2 gap-4 sm:text-lg text-sm">
+                    <ul>
+                        <li>Biz haqimizda</li>
+                        <li>Bo‘sh ish o‘rinlari</li>
+                        <li>Ommaviy oferta</li>
+                        <li>To‘lovni qaytarish va tovarlarni almashtirish</li>
+                        <li>Muddatli to’lov shartlari</li>
+                    </ul>
+                    <ul>
+                        <li>Shaxsiy ma‘lumotlar bilan ishlash bo‘yicha Siyosat</li>
+                        <li>To‘lov va yetkazib berish</li>
+                        <li>Bonus va aksiyalar</li>
+                        <li>Mahsulotlarni Avtoaksessuar .uz da sotmoqchi bo’lgan sotuvchilar uchun oferta.</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="flex items-center justify-center text-xl md:text-start text-center tb-12 text-red-600 font-bold">To'lovni qaysi bankdan to'laysiz?</span>
+                <div class="grid grid-cols-2 p-10  gap-4">
+                    <button class="px-4 py-2 bg-white text-red-600 sm:text-xl text-sm hover:scale-105 rounded-lg">Uzummarket</a>
+                    <button class="px-4 py-2 bg-white text-red-600 sm:text-xl text-sm hover:scale-105 rounded-lg">Plum</button>
+                    <button class="px-4 py-2 bg-white text-red-600 sm:text-xl text-sm hover:scale-105 rounded-lg">Paynet</button>
+                    <button class="px-4 py-2 bg-white text-red-600 sm:text-xl text-sm hover:scale-105 rounded-lg">Payme</button>
+                    <button class="px-4 py-2 bg-white text-red-600 sm:text-xl text-sm hover:scale-105 rounded-lg">Humo</button>
+                    <button class="px-4 py-2 bg-white text-red-600 sm:text-xl text-sm hover:scale-105 rounded-lg">Click</button>
+                </div>
             </div>
         </div>
     </footer>
